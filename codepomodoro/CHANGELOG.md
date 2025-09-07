@@ -4,6 +4,14 @@ All notable changes to the "codepomodoro" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [1.0.3]
+
+- fixed CHANGELOG.md
+
+## [1.0.2]
+
+- fixed README.md
+
+## [1.0.0]
 
 - Initial release

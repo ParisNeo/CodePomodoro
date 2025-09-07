@@ -21,11 +21,11 @@ CodePomodoro provides a beautiful and functional timer right within your editor'
 
 Here's a look at the CodePomodoro timer in the VS Code sidebar:
 
-![CodePomodoro Sidebar UI](images/sidebar.png) 
+![CodePomodoro Sidebar UI](codepomodoro/images/sidebar.png) 
 
 And the minimalist status bar indicator:
 
-![CodePomodoro Status Bar](images/status_bar.png)
+![CodePomodoro Status Bar](codepomodoro/images/status_bar.png)
 
 ## Getting Started
 

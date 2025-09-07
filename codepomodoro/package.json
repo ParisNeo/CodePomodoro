@@ -2,7 +2,7 @@
   "name": "codepomodoro",
   "displayName": "CodePomodoro",
   "description": "🍅 A productivity-focused Pomodoro timer extension for VS Code with status bar integration, customizable sessions, and smart notifications to help developers maintain focus and avoid burnout.",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "publisher": "ParisNeo",
   "license": "MIT",
   "icon": "icons/tomato.png",
