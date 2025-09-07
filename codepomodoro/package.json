@@ -1,0 +1,156 @@
+{
+  "name": "codepomodoro",
+  "displayName": "CodePomodoro",
+  "description": "🍅 A productivity-focused Pomodoro timer extension for VS Code with status bar integration, customizable sessions, and smart notifications to help developers maintain focus and avoid burnout.",
+  "version": "1.0.1",
+  "publisher": "ParisNeo",
+  "license": "MIT",
+  "icon": "icons/tomato.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParisNeo/CodePomodoro.git"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:codepomodoro.webview"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pomodoro.start",
+        "title": "Pomodoro: Start"
+      },
+      {
+        "command": "pomodoro.pause",
+        "title": "Pomodoro: Pause"
+      },
+      {
+        "command": "pomodoro.reset",
+        "title": "Pomodoro: Reset"
+      },
+      {
+        "command": "pomodoro.skip",
+        "title": "Pomodoro: Skip"
+      },
+      {
+        "command": "pomodoro.settings",
+        "title": "Pomodoro: Settings"
+      },
+      {
+        "command": "pomodoro.startStop",
+        "title": "Pomodoro: Start/Stop"
+      },
+      {
+        "command": "codepomodoro.quickStart",
+        "title": "Quick Start Menu",
+        "category": "Pomodoro"
+      },
+      {
+        "command": "codepomodoro.startWork",
+        "title": "Start Work Session",
+        "category": "Pomodoro"
+      },
+      {
+        "command": "codepomodoro.startShortBreak",
+        "title": "Start Short Break",
+        "category": "Pomodoro"
+      },
+      {
+        "command": "codepomodoro.startLongBreak",
+        "title": "Start Long Break",
+        "category": "Pomodoro"
+      },
+      {
+        "command": "codepomodoro.showStats",
+        "title": "Show Statistics",
+        "category": "Pomodoro"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codepomodoro-container",
+          "title": "CodePomodoro",
+          "icon": "icons/tomato.svg"
+        }
+      ]
+    },
+    "views": {
+      "codepomodoro-container": [
+        {
+          "type": "webview",
+          "id": "codepomodoro.webview",
+          "name": "CodePomodoro",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Pomodoro",
+      "properties": {
+        "pomodoro.workDuration": {
+          "type": "number",
+          "default": 25,
+          "description": "Work session length in minutes"
+        },
+        "pomodoro.shortBreakDuration": {
+          "type": "number",
+          "default": 5,
+          "description": "Short break duration in minutes"
+        },
+        "pomodoro.longBreakDuration": {
+          "type": "number",
+          "default": 15,
+          "description": "Long break duration in minutes"
+        },
+        "pomodoro.sessionsBeforeLongBreak": {
+          "type": "number",
+          "default": 4,
+          "description": "Number of work sessions before a long break"
+        },
+        "pomodoro.soundEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable sound notifications"
+        },
+        "pomodoro.autoStartBreaks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-start break sessions"
+        },
+        "pomodoro.autoStartWork": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto-start work sessions"
+        },
+        "pomodoro.showInStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show timer in status bar"
+        },
+        "pomodoro.statusBarPriority": {
+          "type": "number",
+          "default": 100,
+          "description": "Status bar item priority"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "node esbuild.js",
+    "watch": "node esbild.js --watch",
+    "package": "node esbuild.js --production"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@types/vscode": "^1.74.0",
+    "esbuild": "^0.25.9"
+  }
+}
