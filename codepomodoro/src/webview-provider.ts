@@ -34,6 +34,15 @@ export class PomodoroWebviewProvider implements vscode.WebviewViewProvider {
 
         webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
 
+        // *** CODE CORRIGÉ ***
+        // Cet événement se déclenche lorsque la vue devient visible ou cachée.
+        webviewView.onDidChangeVisibility(() => {
+            // Nous vérifions si la vue est maintenant visible.
+            if (webviewView.visible) {
+                this._pomodoroTimer.updateWebview();
+            }
+        });
+
         // Handle messages from the webview
         webviewView.webview.onDidReceiveMessage(
             message => {
@@ -74,7 +83,6 @@ export class PomodoroWebviewProvider implements vscode.WebviewViewProvider {
     // This method is called by the PomodoroTimer to send updates to the webview
     public updateWebview(data: { state: PomodoroState, config: any }) {
         if (this._view) {
-            this._view.show(true); // Make sure the view is visible
             this._view.webview.postMessage({
                 command: 'updateState',
                 data: data

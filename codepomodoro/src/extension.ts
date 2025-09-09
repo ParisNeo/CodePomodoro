@@ -243,18 +243,18 @@ export class PomodoroTimer implements vscode.Disposable {
         this.statusBarItem.command = 'pomodoro.startStop';
     }
 
-    public updateWebview(): void {
-        if (this.webviewProvider) {
-            this.webviewProvider.updateWebview({
-                state: this.state,
-                config: {
-                    workDuration: this.getWorkDuration(),
-                    shortBreakDuration: this.getShortBreakDuration(),
-                    longBreakDuration: this.getLongBreakDuration()
-                }
-            });
-        }
+public updateWebview(): void {
+    if (this.webviewProvider) {
+        this.webviewProvider.updateWebview({
+            state: this.state,
+            config: {
+                workDuration: this.getWorkDuration(),
+                shortBreakDuration: this.getShortBreakDuration(),
+                longBreakDuration: this.getLongBreakDuration()
+            }
+        });
     }
+}
 
     private saveState = () => this.context.workspaceState.update('pomodoroState', this.state);
     private loadState = (): PomodoroState | undefined => this.context.workspaceState.get<PomodoroState>('pomodoroState');
